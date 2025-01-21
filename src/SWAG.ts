@@ -110,7 +110,6 @@ const pmcHostilitySettings: IAdditionalHostilitySettings = {
         "sectactPriestEvent",
         "sectantPriest",
         "sectantWarrior",
-        "shooterBTR",
         "skier",
         "spiritSpring",
         "spiritWinter"
