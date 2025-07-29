@@ -9,7 +9,6 @@ import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
 import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod";
 import { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod";
 import { IBotConfig } from "@spt/models/spt/config/IBotConfig";
-import { IPmcConfig } from "@spt/models/spt/config/IPmcConfig";
 import { ILocations } from "@spt/models/spt/server/ILocations";
 import { ILocationConfig } from "@spt/models/spt/config/ILocationConfig";
 import { ILogger } from "@spt/models/spt/utils/ILogger";
@@ -162,7 +161,6 @@ const customSpawnConfigs = [
 const modName = "SWAG";
 let logger: ILogger;
 let locationCallbacks: LocationCallbacks;
-let jsonUtil: JsonUtil;
 let databaseServer: DatabaseServer;
 let locations: ILocations;
 let seasonalEvents: SeasonalEventService;
@@ -390,7 +388,6 @@ class SWAG implements IPreSptLoadMod, IPostDBLoadMod
     {
         logger = container.resolve<ILogger>("WinstonLogger");
         locationCallbacks = container.resolve<LocationCallbacks>("LocationCallbacks");
-        jsonUtil = container.resolve<JsonUtil>("JsonUtil");
         databaseServer = container.resolve<DatabaseServer>("DatabaseServer");
         locations = databaseServer.getTables().locations;
         randomUtil = container.resolve<RandomUtil>("RandomUtil");
@@ -692,7 +689,7 @@ class SWAG implements IPreSptLoadMod, IPostDBLoadMod
             ForceSpawn: boss.ForceSpawn || false,
             IgnoreMaxBots: true,
             RandomTimeSpawn: boss.RandomTimeSpawn || false,
-            spawnMode: ["pve", "regular"],
+            SpawnMode: ["pve", "regular"],
             Supports: boss.Supports || null,
             Time: boss.Time || -1,
             TriggerId: boss.TriggerId || "",
