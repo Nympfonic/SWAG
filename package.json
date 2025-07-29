@@ -1,7 +1,7 @@
 {
   "name": "SWAG + DONUTS",
-  "version": "3.5.3",
-  "sptVersion": "~3.10.0",
+  "version": "4.0.1",
+  "sptVersion": "~3.11.0",
   "main": "src/SWAG.js",
   "license": "MIT",
   "author": "nooky and props",
@@ -26,7 +26,7 @@
     "glob": "8.0.3",
     "ignore": "^5.2",
     "tsyringe": "4.8.0",
-    "typescript": "5.4",
+    "typescript": "5.8",
     "winston": "3.12"
   }
 }
