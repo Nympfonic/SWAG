@@ -326,15 +326,6 @@ class SWAG implements IPreSptLoadMod, IPostDBLoadMod
                     try 
                     {
                         const botConfig = container.resolve<ConfigServer>("ConfigServer").getConfig<IBotConfig>(ConfigTypes.BOT);
-                        const pmcConfig = container.resolve<ConfigServer>("ConfigServer").getConfig<IBotConfig>(ConfigTypes.PMC);
-                        const { convertIntoPmcChance } = pmcConfig;
-                        Object.entries(convertIntoPmcChance).forEach(([mapKey, map]) => {
-                            Object.entries(map).forEach(([roleKey, role]) => {
-                                role.min = 0;
-                                role.max = 0;
-                            });
-                        });
-                        logger.info("SWAG: PMC conversion is OFF (this is good - be sure this loads AFTER Realism/SVM)");
 
                         // Adjust time and map caps
                         const appContext = container.resolve<ApplicationContext>("ApplicationContext");
